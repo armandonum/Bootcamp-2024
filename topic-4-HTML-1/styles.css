@@ -9,13 +9,27 @@
 }
 .head
 {
+   font-family: 'Bebas Neue',sans-serif;
+    font-size: 1.5rem;
     display: flex;
+    
     justify-content: center;
-  
-    color: rgb(7, 7, 7);
-    width: 100%;
-    padding: 1rem;
-
+    position: relative;
+}
+.head .jala
+{
+    color: black;
+}
+.head .oft
+{
+    color: red;
+}
+.head .highlight
+{
+    color: black;
+    background-color: red;
+    border-radius: 1rem;
+    padding: 0 3px;
 }
 .poster
 {
