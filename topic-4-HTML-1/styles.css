@@ -10,7 +10,7 @@
 .head
 {
    font-family: 'Bebas Neue',sans-serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     
     justify-content: center;
@@ -24,18 +24,12 @@
 {
     color: red;
 }
-.head .highlight
-{
-    color: black;
-    background-color: red;
-    border-radius: 1rem;
-    padding: 0 3px;
-}
+
 .poster
 {
     
     background-color: white;
-    width: 25%;
+    /* width: 20rem; */
     border: 4px solid black;
   
     
@@ -47,14 +41,21 @@
     flex-direction: column;
     align-items: center;
     background-color: black;
-    width: 100%;
+    /* width: 20rem; */
+    
     color: white;  
     padding-top: 1rem;  
+    font-size: 1rem;
+    
+}
+.image-person h1{
+    margin: 20px;
+    font-family: sans-serif;
 }
 
 .image-person img
 {
-    width: 80%;
+    /* width: 15rem; */
     border-radius: 20%;
 }
 
@@ -64,5 +65,6 @@
     justify-content: center;
     background-color: red;
     color: white;
-    ;
+    font: 1em sans-serif;
+    font-size: 1rem;
 }
