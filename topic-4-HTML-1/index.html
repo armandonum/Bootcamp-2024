@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Card Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    
-    <div class="container">
-        <h1>Challenge</h1>
 
+    <div class="form-container">
+        <form id="cardForm" onsubmit="generateCards(event)">
+            <h2>Generate Your Card</h2>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
 
-        <div class="poster">
-            <div class="head" >
-                <span class="jala">Jala</span>
-                <span class="highlight"><img src="images/logo.png" alt="" style="width: 2rem ;"></span>
-                <span class="oft">oft</span> 
-            </div>
-            
-            <div class="image-person"> 
-                <img src="images/hirotka.png" alt="">
-                <h1>Hirotka Nifuji</h1>
-            </div>
-            <div class="foder">        
-                <h2>Developer</h2>
-            </div>
-            
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" required>
+
+            <label for="photo">Photo</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <label for="quantity">Number of Cards</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" required>
+
+            <button type="submit">Generate Cards</button>
+        </form>
     </div>
     
+    <div id="cardsContainer" class="container">
+        <h1>Challenge-4</h1>
+    </div>
+
 </body>
 </html>
