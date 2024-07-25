@@ -27,7 +27,7 @@ function Cinema({ columns, rows }: { columns: number, rows: number }) {
     
         row.map((isAvailable, columnIndex) => (
           <Seat
-            key={`${rowIndex}-${columnIndex}`}
+          
             row={rowIndex}
             column={columnIndex}
             reserveSeat={reserveSeat}
