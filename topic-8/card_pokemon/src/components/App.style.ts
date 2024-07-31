@@ -38,6 +38,7 @@ export const Data=styled.div
     display: flex;
             flex-Direction: column;
             margin: 1.3rem;
+            
   @media (max-width: 768px) {
     margin: 0.5rem;
   }

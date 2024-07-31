@@ -3,6 +3,10 @@ import { useState,useEffect } from "react";
 
 const url = "https://pokeapi.co/api/v2/pokemon/"
 
+const urlInfoPokemons = "https://pokeapi.co/api/v2/pokemon-species/";
+
+
+
 
 
 function getData( id: number)
