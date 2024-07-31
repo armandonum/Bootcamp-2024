@@ -1,76 +1,64 @@
-import { useState, useEffect } from 'react'
+import React, { useState } from 'react';
+import { usePokemon, getPokemon, numberPkemon } from './hook/script';
+import { Container, Header, Data, Image, Type, TypeText } from './components/App.style';
+import {icons} from './components/Icon';
+import logo from './assets/logo.png';
+import {colours} from './components/colors';
 
-import { usePokemon, getPokemon, numberPkemon, getPokemonIcone } from './hook/script';
-
-import { Container, Header, Data, Image } from './App.style';
+import pokeimg from './assets/icon/normal.svg';
 
 function App() {
-  const colours:{[key:string]:string;}= {
-    normal: '#A8A77A',
-    fire: '#EE8130',
-    water: '#6390F0',
-    electric: '#F7D02C',
-    grass: '#7AC74C',
-    ice: '#96D9D6',
-    fighting: '#C22E28',
-    poison: '#A33EA1',
-    ground: '#E2BF65',
-    flying: '#A98FF3',
-    psychic: '#F95587',
-    bug: '#A6B91A',
-    rock: '#B6A136',
-    ghost: '#735797',
-    dragon: '#6F35FC',
-    dark: '#705746',
-    steel: '#B7B7CE',
-    fairy: '#D685AD',
-  };
+
+
   const [count, setCount] = useState(1);
-
-
   const { pokemon } = usePokemon(count);
-
   const getPokemonImage = getPokemon(count);
   const numberPke = numberPkemon(count);
-
-
-  const typename = pokemon?.types.map((typeInfo: { type: { name: any; }; }) => typeInfo.type.name).join(', ');
-  const PokemonTypeBackgroud = colours[typename];
+  const types = pokemon?.types || [];
 
   const handleClick = () => {
     const newPokemon = Math.floor(Math.random() * 100) + 1;
     setCount(newPokemon);
-
-  }
+  };
 
   return (
     <>
       <Container>
-        <Header>
+     <img src={logo} alt="Pokemon" style={{width:'50%'}}/>
+     
+        <Header
+          style={{
+            background: types.length > 1 ? colours[types[0].type.name] : colours[types[0]?.type.name] || 'black',
+          }}
+        >
           <Data>
-
-            <div >
-              <div >
+            <div>
+              <div>
                 <h2># {numberPke} </h2>
                 <h2>{pokemon?.name}</h2>
               </div>
-              <div>
-                <h2 style={{ background: `${PokemonTypeBackgroud}` }}>{typename}</h2>
-                {/* <h2>{pokemon?.types.map(typeInfo => typeInfo.type.name).join(', ')}</h2> */}
-                <img src={PokemonTypeBackgroud} alt="" /></div>
+              <Type>
+                {types.map((typeInfo: { type: { name: string } }) => (
+                  
+                  <TypeText
+                    bgColor={colours[typeInfo.type.name]}  >
+                    <img src={icons[typeInfo.type.name]} alt="nadad" />
+                     {typeInfo.type.name}
+                  </TypeText>
+                  
+                ))}
+              </Type>
             </div>
           </Data>
           <Image>
+        
             <img src={getPokemonImage} alt="Pokemon" />
           </Image>
         </Header>
-        <button onClick={handleClick}>Increment</button>
-
+        <button onClick={handleClick}>other Pokemon</button>
       </Container>
-
     </>
-
-  )
+  );
 }
 
-export default App
+export default App;
