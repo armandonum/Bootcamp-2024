@@ -1,13 +1,14 @@
 import { StyleSheet, View, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
-import PokemonCard from './components/Card';
-import { usePokemon } from './hooks/pokemonHook';
+import PokemonCard from './components/PokemonCard';
+import { usePokemon } from './hooks/usePokemon';
 import { useState } from 'react';
 
 export default function App() {
   const [offset, setOffset] = useState(0);
   const { loading, pokemons } = usePokemon(offset);
+  const LIMIT=25;
 
-  if (loading) {
+  if (loading && pokemons.length === 0) {
     return (
       <View style={styles.container}>
         <ActivityIndicator size='large' />
@@ -21,9 +22,9 @@ export default function App() {
         data={pokemons}
         keyExtractor={(item) => item.name}
         renderItem={({ item, index }) => (
-          <PokemonCard name={item.name} id={index + 1} />
+          <PokemonCard name={item.name} id={offset + index + 1} />
         )}
-        onEndReached={() => setOffset((old) => old + 25)}
+        onEndReached={() => setOffset((old) => old + LIMIT)}
         onEndReachedThreshold={0.5}
       />
     </SafeAreaView>
@@ -37,5 +38,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+  name: {
+    fontSize: 20,
+    color: '#1e1e1e'
+  },
+  text: {
+    fontSize: 20,
+    color: '#1e1e1e',
+  },
 });

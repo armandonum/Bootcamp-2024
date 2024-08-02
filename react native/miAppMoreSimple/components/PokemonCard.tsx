@@ -6,7 +6,8 @@ type Props = {
 };
 
 function getImageUrl(id: number) {
-  return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png';
+  
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 }
 
 function PokemonCard({ id, name }: Props) {
@@ -29,11 +30,11 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    color: '#lelele',
+    color: '#1e1e1e',
   },
   image: {
-   width:75,
-    height:75,
+    width: 75,
+    height: 75,
   },
 });
 
