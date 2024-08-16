@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import type { Contact } from './ContactLoader'
 import { useLoaderData } from 'react-router-dom'
 
-export const ContactPage = () => {
+ const ContactPage = () => {
 
   const contacts = useLoaderData() as Contact[];
   return (
@@ -18,4 +18,6 @@ export const ContactPage = () => {
     </div>
   )
 }
+
+export default ContactPage;
 
